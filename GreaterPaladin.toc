@@ -1,0 +1,6 @@
+## Interface: 50400
+## Title: Greater Paladin	
+## Author: Miguel V (Memoryleak)
+## Version: 1.0
+
+GreaterPaladin.lua
