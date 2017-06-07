@@ -1,6 +1,32 @@
-## Interface: 50400
-## Title: Greater Paladin	
+## Interface: 700000
+## Title: Greater Paladin
 ## Author: Miguel V (Memoryleak)
-## Version: 1.0
+## Version: 7.0.3.3
+## Notes: Used to Track Greater Blessings
+## DefaultState: enabled
+## Dependencies:
+## OptionalDeps: Ace3, LibSharedMedia-3.0, SharedMedia
+## X-Category: Paladin
+## X-Embeds: Ace3, LibSharedMedia-3.0
+## SavedVariables: PallyPowerDB
+## X-Curse-Packaged-Version: v5.0.11
+## X-Curse-Project-Name: PallyPower
+## X-Curse-Project-ID: pally-power
+## X-Curse-Repository-ID: wow/pally-power/mainline
 
+#@no-lib-strip@
+embeds.xml
+#@end-no-lib-strip@
+
+locale\enUS.lua
+locale\ruRU.lua
+locale\deDE.lua
+locale\frFR.lua
+locale\koKR.lua
+locale\esES.lua
+locale\esMX.lua
+locale\zhCN.lua
+locale\zhTW.lua
+
+GreaterPaladin.xml
 GreaterPaladin.lua

@@ -2,12 +2,97 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
                    xsi:schemaLocation="http://www.blizzard.com/wow/ui/ 
                    ..\..\FrameXML\UI.xsd">
-  <Script File="GreaterPaladin.lua"/>
-  <Frame name="GreaterPaladinFrame">
-   <Scripts>
-    <OnLoad>
-     GreaterPaladin();
-    </OnLoad>
-   </Scripts>
-  </Frame>
+
+  
+  
+<Button name="GreaterPaladinButtonTemplate" virtual="true" frameStrata="LOW">
+	<Size>
+		<AbsDimension x="164" y="34"/>
+	</Size>
+	<Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+		<EdgeSize>
+			<AbsValue val="8"/>
+		</EdgeSize>
+		<TileSize>
+			<AbsValue val="8"/>
+		</TileSize>
+		<BackgroundInsets>
+			<AbsInset left="2" right="2" top="2" bottom="2"/>
+		</BackgroundInsets>
+	</Backdrop>
+	<Layers>
+		<Layer level="OVERLAY">
+			<FontString name="$parentTime" inherits="GameFontHighlightSmall" text="30:00" justifyH="RIGHT">
+				<Size>
+					<AbsDimension x="40" y="16" /> 
+				</Size>
+				<Anchors>
+					<Anchor point="LEFT">
+						<Offset>
+							<AbsDimension x="120" y="0" /> 
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</FontString>
+			<Texture name="$parentBuffIcon" file="Interface\Icons\Spell_Holy_SealOfWisdom">
+				<Size>
+					<AbsDimension x="26" y="26" /> 
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset>                                      
+							<AbsDimension x="4" y="-4" /> 
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Texture>
+			<FontString name="$parentText" inherits="GameFontHighlightSmall" text="BUFF SOMEONE" justifyH="LEFT">
+				<Size>
+					<AbsDimension x="110" y="16" /> 
+				</Size>
+				<Anchors>
+					<Anchor point="TOPRIGHT" relativeTo="$parentTime" relativePoint="TOPLEFT">
+						<Offset>
+							<AbsDimension x="30" y="0" /> 
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</FontString>
+		</Layer>
+	</Layers>
+	<Scripts>
+		<OnLoad>
+			self:RegisterForDrag("LeftButton");
+		</OnLoad>
+		<OnDragStart>
+			if IsShiftKeyDown() then
+				GreaterPaladinFrame:StartMoving()
+			end
+		</OnDragStart>
+		<OnDragStop>
+			GreaterPaladinFrame:StopMovingOrSizing()
+		</OnDragStop>
+	</Scripts>
+</Button>
+  
+<Frame name="GreaterPaladinFrame" movable="true" frameStrata="LOW" enableMouse="true" parent="UIParent" hidden="false">
+	<Size>
+		<AbsDimension x="1" y="1" />
+	</Size>
+	<Anchors>
+		<Anchor point="CENTER">
+			<Offset x="0" y="0"/>
+		</Anchor>
+	</Anchors>
+	<Frames>
+		<Frame name="GreaterPaladinHeader" toplevel="true" movable="true" enableMouse="true" resizable="true" frameStrata="LOW" inherits="SecureHandlerStateTemplate">
+			<Size x="1" y="1"/>
+			<Anchors>
+				<Anchor point="CENTER" relativeTo="$parent" relativePoint="CENTER"/>
+			</Anchors>
+		</Frame>
+	</Frames>
+</Frame>
+
+
 </Ui>
